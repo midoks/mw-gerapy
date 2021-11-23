@@ -15,6 +15,7 @@
 
 app_start(){
     mkdir -p /www/server/gerapy
+    cd /www/server/gerapy
     echo "" > /www/server/gerapy/logs.pl
     echo "" > /www/server/gerapy/scrapyd.pl
 
