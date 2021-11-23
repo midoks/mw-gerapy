@@ -25,6 +25,10 @@ mkdir -p /www/server/gerapy
 echo "0.9.7" > /www/server/gerapy/version.pl
 
 
+cd /www/server/gerapy
+gerapy init
+gerapy migrate
+
 cd /www/server/mdserver-web/ && python3 /www/server/mdserver-web/plugins/gerapy/index.py start
 
 endTime=`date +%s`
