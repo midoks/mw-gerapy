@@ -168,9 +168,11 @@ def initdUinstall():
 
 
 def runLog():
-    if mw.isAppleSystem():
-        return getServerDir() + '/logs/mongodb.log'
-    return "/var/log/mongodb/mongod.log"
+    return getServerDir() + '/logs.pl'
+
+
+def scrLog():
+    return getServerDir() + '/scrapyd.pl'
 
 if __name__ == "__main__":
     func = sys.argv[1]
@@ -190,5 +192,9 @@ if __name__ == "__main__":
         print(initdInstall())
     elif func == 'initd_uninstall':
         print(initdUinstall())
+    elif func == 'run_log':
+        print(runLog())
+    elif func == 'scr_log':
+        print(scrLog())
     else:
         print('error')
