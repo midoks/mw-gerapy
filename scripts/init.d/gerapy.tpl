@@ -15,6 +15,9 @@
 
 app_start(){
     mkdir -p /www/server/gerapy
+    echo "" > /www/server/gerapy/logs.pl
+    echo "" > /www/server/gerapy/scrapyd.pl
+    
     nohup gerapy runserver > /www/server/gerapy/logs.pl 2>&1 &
     echo "gerapy started"
 }
