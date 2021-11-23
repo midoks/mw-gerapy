@@ -146,6 +146,7 @@ def initdInstall():
     mw.execShell('chmod +x ' + initd_bin)
     mw.execShell('chkconfig --add ' + getPluginName())
 
+    shutil.copyfile("/www/server/gerapy/init.d/scrapyd", "/etc/init.d/scrapyd")
     mw.execShell("chmod +x /etc/init.d/scrapyd")
     mw.execShell('chkconfig --add scrapyd')
 
