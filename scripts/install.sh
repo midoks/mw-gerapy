@@ -19,6 +19,8 @@ if [ ! -d /www/server/mdserver-web/plugins/mw-gerapy ];then
 	rm -rf /tmp/mw-gerapy-master
 fi
 
+mkdir -p /www/server/gerapy
+
 
 endTime=`date +%s`
 
