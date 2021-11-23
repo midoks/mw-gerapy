@@ -32,12 +32,12 @@ def getInitDFile():
 
 
 def getInitDTpl():
-    path = getPluginDir() + "/init.d/" + getPluginName() + ".tpl"
+    path = getPluginDir() + "/scripts/init.d/" + getPluginName() + ".tpl"
     return path
 
 
 def getInitDScrapydTpl():
-    path = getPluginDir() + "/init.d/scrapyd.tpl"
+    path = getPluginDir() + "/scripts/init.d/scrapyd.tpl"
     return path
 
 
