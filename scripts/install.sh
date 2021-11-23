@@ -25,6 +25,8 @@ rm -rf /tmp/mw-gerapy-main
 
 mkdir -p /www/server/gerapy
 echo "0.9.7" > /www/server/gerapy/version.pl
+echo "" > /www/server/gerapy/logs.pl
+echo "" > /www/server/gerapy/scrapyd.pl
 
 
 cd /www/server/gerapy
