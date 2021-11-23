@@ -146,6 +146,9 @@ def initdInstall():
     mw.execShell('chmod +x ' + initd_bin)
     mw.execShell('chkconfig --add ' + getPluginName())
 
+    mw.execShell("chmod +x /etc/init.d/scrapyd")
+    mw.execShell('chkconfig --add scrapyd')
+
     return 'ok'
 
 
@@ -157,6 +160,9 @@ def initdUinstall():
     mw.execShell('chkconfig --del ' + getPluginName())
     initd_bin = getInitDFile()
     os.remove(initd_bin)
+
+    mw.execShell('chkconfig --del scrapyd')
+    os.remove("/etc/init.d/scrapyd")
 
     return 'ok'
 
