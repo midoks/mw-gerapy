@@ -31,18 +31,13 @@ def getInitDFile():
     return '/etc/init.d/' + getPluginName()
 
 
-def getConf():
-    path = getServerDir() + "/mongodb.conf"
-    return path
-
-
-def getConfTpl():
-    path = getPluginDir() + "/config/mongodb.conf"
-    return path
-
-
 def getInitDTpl():
     path = getPluginDir() + "/init.d/" + getPluginName() + ".tpl"
+    return path
+
+
+def getInitDScrapydTpl():
+    path = getPluginDir() + "/init.d/scrapyd.tpl"
     return path
 
 
@@ -88,28 +83,38 @@ def initDreplace():
     mw.writeFile(file_bin, content)
     mw.execShell('chmod +x ' + file_bin)
 
-    return file_bin
+    file_tpl = getInitDScrapydTpl()
+    file_bin_scr = initD_path + '/scrapyd'
+    content = mw.readFile(file_tpl)
+    content = content.replace('{$SERVER_PATH}', service_path)
+    mw.writeFile(file_bin_scr, content)
+    mw.execShell('chmod +x ' + file_bin_scr)
+
+    return file_bin, file_bin_scr
 
 
 def start():
-    file = initDreplace()
+    file, file_scr = initDreplace()
     data = mw.execShell(file + ' start')
+    mw.execShell(file_scr + ' start')
     if data[1] == '':
         return 'ok'
     return 'fail'
 
 
 def stop():
-    file = initDreplace()
+    file, file_scr = initDreplace()
     data = mw.execShell(file + ' stop')
+    mw.execShell(file_scr + ' stop')
     if data[1] == '':
         return 'ok'
     return 'fail'
 
 
 def reload():
-    file = initDreplace()
+    file, file_scr = initDreplace()
     data = mw.execShell(file + ' reload')
+    mw.execShell(file_scr + ' reload')
     if data[1] == '':
         return 'ok'
     return 'fail'
@@ -121,9 +126,12 @@ def initdStatus():
             return "Apple Computer does not support"
 
     initd_bin = getInitDFile()
-    if os.path.exists(initd_bin):
-        return 'ok'
-    return 'fail'
+    if not os.path.exists(initd_bin):
+        return 'fail'
+
+    if not os.path.exists(initd_bin):
+        return 'fail'
+    return 'ok'
 
 
 def initdInstall():
@@ -176,7 +184,5 @@ if __name__ == "__main__":
         print(initdInstall())
     elif func == 'initd_uninstall':
         print(initdUinstall())
-    elif func == 'conf':
-        print(getConf())
     else:
         print('error')
