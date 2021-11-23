@@ -7,3 +7,9 @@
 ```
 curl https://raw.githubusercontent.com/midoks/mw-gerapy/main/scripts/install.sh | sh
 ```
+
+# Debug
+
+```
+cd /www/server/mdserver-web/ && python3 /www/server/mdserver-web/plugins/gerapy/index.py start
+```

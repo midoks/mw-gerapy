@@ -19,8 +19,13 @@ if [ ! -d /www/server/mdserver-web/plugins/gerapy ];then
 	rm -rf /tmp/mw-gerapy-master
 fi
 
+
+
 mkdir -p /www/server/gerapy
 echo "1.0" > /www/server/gerapy/version.pl
+
+
+cd /www/server/mdserver-web/ && python3 /www/server/mdserver-web/plugins/gerapy/index.py start
 
 endTime=`date +%s`
 
