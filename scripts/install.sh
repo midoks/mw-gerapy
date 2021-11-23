@@ -20,7 +20,7 @@ if [ ! -d /www/server/mdserver-web/plugins/mw-gerapy ];then
 fi
 
 mkdir -p /www/server/gerapy
-
+echo "1.0" > /www/server/gerapy/version.pl
 
 endTime=`date +%s`
 
