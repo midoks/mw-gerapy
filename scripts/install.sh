@@ -29,7 +29,7 @@ echo "0.9.7" > /www/server/gerapy/version.pl
 
 cd /www/server/gerapy
 
-if [ -d /www/server/gerapy/dbs ];then
+if [ ! -d /www/server/gerapy/dbs ];then
 	gerapy init
 	gerapy migrate
 fi
