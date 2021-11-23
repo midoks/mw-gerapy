@@ -129,7 +129,7 @@ def initdStatus():
     if not os.path.exists(initd_bin):
         return 'fail'
 
-    if not os.path.exists(initd_bin):
+    if not os.path.exists("/etc/init.d/scrapyd"):
         return 'fail'
     return 'ok'
 
