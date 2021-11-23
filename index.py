@@ -60,7 +60,7 @@ def getArgs():
 
 def status():
     data = mw.execShell(
-        "ps -ef|grep gerapy |grep -v grep | grep -v python | grep -v mdserver-web | awk '{print $2}'")
+        "ps -ef|grep gerapy |grep -v grep | grep -v mdserver-web | awk '{print $2}'")
 
     if data[0] == '':
         return 'stop'
