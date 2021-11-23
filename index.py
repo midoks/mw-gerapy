@@ -142,7 +142,7 @@ def initdInstall():
 
     source_bin = initDreplace()
     initd_bin = getInitDFile()
-    shutil.copyfile(source_bin, initd_bin)
+    shutil.copyfile(source_bin[0], initd_bin)
     mw.execShell('chmod +x ' + initd_bin)
     mw.execShell('chkconfig --add ' + getPluginName())
 
