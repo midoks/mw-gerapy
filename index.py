@@ -187,6 +187,8 @@ if __name__ == "__main__":
         print(restart())
     elif func == 'reload':
         print(reload())
+    elif func == 'restart':
+        print(reload())
     elif func == 'initd_status':
         print(initdStatus())
     elif func == 'initd_install':
