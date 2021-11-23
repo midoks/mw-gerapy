@@ -18,7 +18,7 @@ wget -O /tmp/master.zip https://codeload.github.com/midoks/mw-gerapy/zip/main
 cd /tmp && unzip /tmp/master.zip
 mv /tmp/mw-gerapy-main /www/server/mdserver-web/plugins/gerapy
 rm -rf /tmp/master.zip
-rm -rf /tmp/mw-gerapy-master
+rm -rf /tmp/mw-gerapy-main
 # fi
 
 
