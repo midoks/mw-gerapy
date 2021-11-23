@@ -28,8 +28,11 @@ echo "0.9.7" > /www/server/gerapy/version.pl
 
 
 cd /www/server/gerapy
-gerapy init
-gerapy migrate
+
+if [ -d /www/server/gerapy/dbs ];then
+	gerapy init
+	gerapy migrate
+fi
 
 # gerapy createsuperuser
 
