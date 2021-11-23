@@ -5,5 +5,5 @@
 # 安装
 
 ```
-curl https://github.com/midoks/mw-gerapy/blob/main/scripts/install.sh | sh
+curl https://raw.githubusercontent.com/midoks/mw-gerapy/main/scripts/install.sh | sh
 ```
