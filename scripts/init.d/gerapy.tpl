@@ -17,13 +17,13 @@ app_start(){
     mkdir -p /www/server/gerapy
     echo "" > /www/server/gerapy/logs.pl
     echo "" > /www/server/gerapy/scrapyd.pl
-    
+
     nohup gerapy runserver > /www/server/gerapy/logs.pl 2>&1 &
     echo "gerapy started"
 }
 app_stop(){
     echo "Stopping ..."
-    arr=`ps -ef | grep "python gerapy" | grep -v grep | awk '{print $2}' | xargs kill`
+    arr=`ps -ef | grep "gerapy" | grep -v grep | awk '{print $2}' | xargs kill`
     for p in ${arr[@]}
     do
             kill -9 $p &>/dev/null
