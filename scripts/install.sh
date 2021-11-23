@@ -11,7 +11,7 @@ pip3 install gerapy
 pip3 install scrapyd
 
 
-if [ ! -d /www/server/mdserver-web/plugins/mw-gerapy ];then
+if [ ! -d /www/server/mdserver-web/plugins/gerapy ];then
 	wget -O /tmp/master.zip https://codeload.github.com/midoks/mw-gerapy/zip/main
 	cd /tmp && unzip /tmp/master.zip
 	mv /tmp/mw-gerapy-main /www/server/mdserver-web/plugins/gerapy
