@@ -184,10 +184,8 @@ if __name__ == "__main__":
     elif func == 'stop':
         print(stop())
     elif func == 'restart':
-        print(restart())
-    elif func == 'reload':
         print(reload())
-    elif func == 'restart':
+    elif func == 'reload':
         print(reload())
     elif func == 'initd_status':
         print(initdStatus())
