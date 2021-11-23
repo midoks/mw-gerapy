@@ -20,7 +20,11 @@ app_start(){
 }
 app_stop(){
     echo "Stopping ..."
-    ps -ef | grep "python gerapy" | grep -v grep | awk '{print $2}' | xargs kill
+    arr=`ps -ef | grep "python gerapy" | grep -v grep | awk '{print $2}' | xargs kill`
+    for p in ${arr[@]}
+    do
+            kill -9 $p &>/dev/null
+    done
     echo "gerapy stopped"
 }
 
