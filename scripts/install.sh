@@ -30,7 +30,8 @@ echo "0.9.7" > /www/server/gerapy/version.pl
 cd /www/server/gerapy
 gerapy init
 gerapy migrate
-gerapy createsuperuser
+
+# gerapy createsuperuser
 
 cd /www/server/mdserver-web/ && python3 /www/server/mdserver-web/plugins/gerapy/index.py start
 
