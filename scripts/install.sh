@@ -22,7 +22,7 @@ fi
 
 
 mkdir -p /www/server/gerapy
-echo "1.0" > /www/server/gerapy/version.pl
+echo "0.9.7" > /www/server/gerapy/version.pl
 
 
 cd /www/server/mdserver-web/ && python3 /www/server/mdserver-web/plugins/gerapy/index.py start
