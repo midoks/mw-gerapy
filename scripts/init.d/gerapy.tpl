@@ -12,25 +12,53 @@
 # Description:       starts the MDW-Web
 ### END INIT INFO
 
+PATH=/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 
 app_start(){
-    echo "gerapy starting"
-    mkdir -p /www/server/gerapy
-    cd /www/server/gerapy
-    echo "" > /www/server/gerapy/logs.pl
-    echo "" > /www/server/gerapy/scrapyd.pl
+    isStart=`ps -ef|grep 'gerapy runserver' |grep -v grep|awk '{print $2}'`
+    if [ "$isStart" == '' ];then
+            echo -e "Starting gerapy... \c"
 
-    nohup gerapy runserver > /www/server/gerapy/logs.pl 2>&1 &
-    echo "gerapy started"
+            mkdir -p /www/server/gerapy
+            cd /www/server/gerapy
+            echo "" > /www/server/gerapy/logs.pl
+            echo "" > /www/server/gerapy/scrapyd.pl
+            nohup gerapy runserver > /www/server/gerapy/logs.pl 2>&1 &
+
+            isStart=""
+            while [[ "$isStart" == "" ]];
+            do
+                echo -e ".\c"
+                sleep 0.5
+                isStart=`ps -ef|grep 'gerapy runserver' |grep -v grep|awk '{print $2}'`
+                let n+=1
+                if [ $n -gt 15 ];then
+                    break;
+                fi
+            done
+            if [ "$isStart" == '' ];then
+                    echo -e "\033[31mfailed\033[0m"
+                    echo '------------------------------------------------------'
+                    tail -n 20 /www/server/gerapy/logs.pl
+                    echo '------------------------------------------------------'
+                    echo -e "\033[31mError: gerapy service startup failed.\033[0m"
+                    return;
+            fi
+            echo -e "\033[32mdone\033[0m"
+    else
+            echo "Starting gerapy... gerapy(pid $(echo $isStart)) already running"
+    fi
 }
+
+
 app_stop(){
-    echo "Stopping ..."
+    echo "Stopping gerapy...\c"
     arr=`ps -ef | grep "gerapy runserver" | grep -v grep | awk '{print $2}'`
     for p in ${arr[@]}
     do
             kill -9 $p &>/dev/null
     done
-    echo "gerapy stopped"
+    echo -e "\033[32mdone\033[0m"
 }
 
 
