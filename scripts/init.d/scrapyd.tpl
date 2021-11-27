@@ -14,6 +14,7 @@
 
 
 app_start(){
+    echo "scrapyd starting"
     mkdir -p /www/server/gerapy
     nohup scrapyd > /www/server/gerapy/scrapyd.pl 2>&1 &
     echo "scrapyd started"

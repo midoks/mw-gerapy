@@ -14,6 +14,7 @@
 
 
 app_start(){
+    echo "gerapy starting"
     mkdir -p /www/server/gerapy
     cd /www/server/gerapy
     echo "" > /www/server/gerapy/logs.pl
@@ -24,7 +25,7 @@ app_start(){
 }
 app_stop(){
     echo "Stopping ..."
-    arr=`ps -ef | grep "gerapy runserver" | grep -v grep | awk '{print $2}' | xargs kill`
+    arr=`ps -ef | grep "gerapy runserver" | grep -v grep | awk '{print $2}'`
     for p in ${arr[@]}
     do
             kill -9 $p &>/dev/null
