@@ -52,7 +52,7 @@ app_start(){
 
 
 app_stop(){
-    echo "Stopping gerapy...\c"
+    echo -e "Stopping gerapy... \c"
     arr=`ps -ef | grep "gerapy runserver" | grep -v grep | awk '{print $2}'`
     for p in ${arr[@]}
     do
