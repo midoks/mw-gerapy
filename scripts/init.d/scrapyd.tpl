@@ -16,7 +16,7 @@ PATH=/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
 app_start(){
     
-    isStart=`ps -ef|grep 'scrapyd' |grep -v grep | grep -v service | awk '{print $2}'`
+    isStart=`ps -ef|grep 'scrapyd' |grep -v grep | grep -v service | grep -v '/bin/sh' | awk '{print $2}'`
     if [ "$isStart" == '' ];then
             echo -e "Starting gerapy... \c"
 
