@@ -23,7 +23,7 @@ app_start(){
             cd /www/server/gerapy
             echo "" > /www/server/gerapy/logs.pl
             echo "" > /www/server/gerapy/scrapyd.pl
-            gerapy runserver > /www/server/gerapy/logs.pl 2>&1 &
+            nohup gerapy runserver > /www/server/gerapy/logs.pl 2>&1 &
 
             isStart=""
             while [[ "$isStart" == "" ]];
