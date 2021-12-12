@@ -52,7 +52,7 @@ app_start(){
 app_stop(){
 
     echo "Stopping scrapyd...\c"
-    arr=`ps -ef | grep "scrapyd" | grep -v grep | grep -v service | awk '{print $2}'`
+    arr=`ps -ef | grep "scrapyd" | grep -v grep | grep -v service | grep -v '/bin/sh' | awk '{print $2}'`
     for p in ${arr[@]}
     do
             kill -9 $p &>/dev/null
