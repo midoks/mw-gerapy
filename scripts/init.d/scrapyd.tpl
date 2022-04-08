@@ -18,7 +18,7 @@ app_start(){
     
     isStart=`ps -ef|grep 'scrapyd' |grep -v grep | grep -v service | grep -v '/bin/sh' | awk '{print $2}'`
     if [ "$isStart" == '' ];then
-            echo -e "Starting gerapy... \c"
+            echo -e "Starting scrapyd... \c"
 
             mkdir -p /www/server/gerapy
             cd /www/server/gerapy
@@ -51,7 +51,7 @@ app_start(){
 
 app_stop(){
 
-    echo "Stopping scrapyd...\c"
+    echo -e "Stopping scrapyd...\c"
     arr=`ps -ef | grep "scrapyd" | grep -v grep | grep -v service | grep -v '/bin/sh' | awk '{print $2}'`
     for p in ${arr[@]}
     do
