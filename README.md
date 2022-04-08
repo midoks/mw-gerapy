@@ -15,6 +15,10 @@ cd /www/server/mdserver-web/ && python3 /www/server/mdserver-web/plugins/gerapy/
 ```
 
 
+# 降级django
+```
+pip install django==2.1.8
+```
 # linux升级sqlite3
 ```
 wget http://www.sqlite.org/2019/sqlite-autoconf-3280000.tar.gz
