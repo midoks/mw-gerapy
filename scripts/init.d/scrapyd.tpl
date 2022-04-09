@@ -22,7 +22,7 @@ app_start(){
 
             mkdir -p /www/server/gerapy
             cd /www/server/gerapy
-            nohup scrapyd > /www/server/gerapy/scrapyd.pl 2>&1 &
+            daemon "scrapyd > /www/server/gerapy/scrapyd.pl 2>&1 &"
 
             isStart=""
             while [[ "$isStart" == "" ]];
