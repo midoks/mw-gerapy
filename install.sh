@@ -8,7 +8,7 @@ pip3 install gerapy
 pip3 install scrapyd
 
 
-
+pip install django==2.1.8
 
 endTime=`date +%s`
 ((outTime=($endTime-$startTime)/60))

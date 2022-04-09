@@ -14,6 +14,10 @@
 
 PATH=/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 
+# if [ -f /etc/init.d/functions ];then
+#   . /etc/init.d/functions
+# fi
+
 app_start(){
     isStart=`ps -ef|grep 'gerapy runserver' |grep -v grep|awk '{print $2}'`
     if [ "$isStart" == '' ];then
@@ -23,7 +27,7 @@ app_start(){
             cd /www/server/gerapy
             echo "" > /www/server/gerapy/logs.pl
             echo "" > /www/server/gerapy/scrapyd.pl
-            daemon "gerapy runserver > /www/server/gerapy/logs.pl 2>&1 &"
+            gerapy runserver > /www/server/gerapy/logs.pl 2>&1 &
 
             isStart=""
             while [[ "$isStart" == "" ]];
