@@ -14,6 +14,9 @@ curl https://raw.githubusercontent.com/midoks/mw-gerapy/main/scripts/install.sh 
 cd /www/server/mdserver-web/ && python3 /www/server/mdserver-web/plugins/gerapy/index.py start
 ```
 
+```
+ps -ef|grep gerapy | grep -v grep|awk '{print $2}'|xargs kill 
+```
 
 # 降级django
 ```
@@ -27,8 +30,12 @@ tar zxvf sqlite-autoconf-3280000.tar.gz -C /usr/src/
 cd /usr/src/sqlite-autoconf-3280000/ && ./configure --prefix=/usr/local/sqlite && make && make install
 
 
-mv /usr/bin/sqlite3 /usr/bin/sqlite3_old && cd /usr/local/sqlite/bin/ && ln -s sqlite3 /usr/bin/sqlite3
+mv /usr/bin/sqlite3 /usr/bin/sqlite3_old && cd /usr/local/sqlite/bin/ && ln -s sqlite3 /bin/sqlite3
 
+
+sqlite3 -version
+/usr/bin/sqlite3 -version
+/usr/local/sqlite/bin/sqlite3 -version
 
 vim /etc/profile
 export LD_LIBRARY_PATH="/usr/local/sqlite/lib"

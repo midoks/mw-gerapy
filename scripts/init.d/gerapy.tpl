@@ -18,6 +18,8 @@ PATH=/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 #   . /etc/init.d/functions
 # fi
 
+
+# /bin/bash -c "gerapy runserver 8001"
 app_start(){
     isStart=`ps -ef|grep 'gerapy runserver' |grep -v grep|awk '{print $2}'`
     if [ "$isStart" == '' ];then
